@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap" rel="stylesheet">
+		<title>Disc Golf Bag Builder</title>
+		<style>
+			html, body {
+				background-color: #fdeedd;
+				font-family: "Nunito", sans-serif;
+				color: white;
+				padding: 0;
+				margin: 0;
+			}
+
+			h1 {
+				padding: 0;
+				margin: 0;
+				font-size: 3em;
+				font-weight: 400;
+			}
+
+			header {
+				padding-left: 2%;
+				display: flex;
+				height: 90px;
+				align-items: flex-end;
+				background-color: #92bcea;
+			}
+			
+			main {
+				display: flex;
+				flex-direction: column;
+				justify-content: center;
+				align-items: center;
+			}
+
+			#bag h2 {
+				font-weight: 400;
+				color: #5d5179;
+			}
+
+			#bag {
+				width: 90%;
+				padding: 0 4.5%;
+			}
+
+			#bagOfDiscs {
+				background-color: #5D5179;
+			}
+
+			#discs {
+				padding: 0 3% 3% 3%;
+				width: 90%;
+			}
+
+			#discs footer {
+				display: flex;
+				justify-content: space-around;
+			}
+
+			#selection {
+				display: flex;
+				flex-wrap: wrap;
+				justify-content: center;
+				gap: 3%;
+
+			}
+
+			#selection img {
+				height: 200px;
+				width: 235px;
+			}
+
+			#selection div {
+				padding: 1%;
+				margin: 0.5%;
+				border-radius: 3px;
+				background-color: #92bcea;
+			}
+		</style>
+	</head>
+	<body>
+		<header>
+			<h1>Build a Disc Golf Bag</h1>
+		</header>
+		<main>
+			<section id="bag">
+				<h2>Bag</h2>
+				<div id="bagOfDiscs"></div>
+			</section>
+			<section id="discs">
+				<div id="selection"></div>
+				<footer>
+					<button onclick="prev()">Previous</button>
+					<button onclick="next()">Next</button>
+				</footer>
+			</section>
+		</main>	
+		<script src="home.js"></script>
+	</body>
+</html>
