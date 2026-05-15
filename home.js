@@ -1,4 +1,5 @@
 let availableDiscs = [];
+let baggedDiscs = new Set();
 let index = 0;
 let limit = 20;
 
@@ -29,8 +30,33 @@ function buildDisc(disc) {
 
 function bagDisc(disc) {
 	let div = document.createElement("div");
-	let name = document.createElement("h3");
-	div.append(name);
+	let name = document.createElement("h3").textContent = disc.name;
+	let x = document.createElement("p");
+
+	x.classList.add("x");
+	x.textContent = "X";
+
+
+	div.append(name, x);
+	div.classList.add("baggedDisc");
+
+	if(!baggedDiscs.has(disc.name)){
+		div.id = disc.name;
+		baggedDiscs.add(disc.name);
+	} else {
+		let id = 0;
+		while(baggedDiscs.has(`${disc.name}-${id}`)){
+			id++;
+		}
+		div.id = `${disc.name}-${id}`;
+		baggedDiscs.add(`${disc.name}-${id}`);
+	}
+
+	div.addEventListener('click', (event) => {
+		event.target.remove();
+		baggedDiscs.delete(event.target.id);
+	})
+
 	document.getElementById("bagOfDiscs").append(div);
 }
 
@@ -49,6 +75,9 @@ function next() {
 }
 
 function prev() {
+	if(index === 0){
+		return;
+	}
 	index -= limit;
 	loadDiscSelection();
 }
